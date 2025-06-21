@@ -20,6 +20,7 @@ pub fn print_ast(program: &Program) {
 
 struct AstPrinter {
     indent: usize,
+    
 }
 
 impl AstPrinter {
@@ -64,7 +65,8 @@ impl AstPrinter {
                 self.print_indented("Global");
                 self.indented(|p| {
                     for (name, offset) in globals {
-                        p.print_indented(&format!("{}: {}", name, offset));
+                        p.print_indented(&format!("{}: {:?}", name, offset));
+
                     }
                 });
             }
@@ -279,7 +281,15 @@ impl AstPrinter {
 
     fn print_expression(&mut self, expr: &Expression) {
         match expr {
-            Expression::Literal(lit) => self.print_indented(&format!("Literal({:?})", lit)),
+            Expression::Literal(lit) => match lit {
+                LiteralExpr::Number(n) => self.print_indented(&format!("Literal(Number: {})", n)),
+                LiteralExpr::FloatNumber(f) => self.print_indented(&format!("Literal(Float: {})", f)),
+                LiteralExpr::String(s) => self.print_indented(&format!("Literal(String: \"{}\")", s)),
+                LiteralExpr::Char(c) => self.print_indented(&format!("Literal(Char: '{}')", c)),
+                LiteralExpr::True => self.print_indented("Literal(True)"),
+                LiteralExpr::False => self.print_indented("Literal(False)"),
+            },
+
             Expression::Variable(name) => self.print_indented(&format!("Variable({})", name)),
             Expression::UnaryOp { op, operand } => {
                 self.print_indented(&format!("UnaryOp({:?})", op));

@@ -34,7 +34,7 @@ pub enum TopLevel {
     Declaration(Declaration),
     Get(String),
     Manifest(Vec<(String, Expression)>),
-    Global(Vec<(String, i64)>),
+    Global(Vec<(String, Option<Expression>)>),
     Static(Vec<(String, LiteralExpr)>),
     // NEW: Represents a SECTION "name" BE <statement> construct.
     Section { name: String, body: Box<Statement> },
@@ -358,7 +358,9 @@ impl<'a> Parser<'a> {
             let name = self.consume_identifier("Expect global variable name.")?;
             self.consume(TokenType::Colon, "Expect ':' separating global name and offset.")?;
             let offset = self.consume_integer("Expect integer offset for global.")?;
-            globals.push((name, offset));
+            // Convert the integer offset to an Expression::Literal using the correct variant
+            let offset_expr = Expression::Literal(LiteralExpr::Number(offset));
+            globals.push((name, Some(offset_expr)));
 
             if !self.check(TokenType::SectionEnd) {
                 self.consume(TokenType::Semicolon, "Expect ';' to separate GLOBAL declarations.")?;
