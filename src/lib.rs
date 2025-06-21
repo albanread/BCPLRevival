@@ -9,6 +9,9 @@ pub mod lexer;
 pub mod parser;
 pub mod semantic;
 pub mod codegen;
+ 
+ 
+
 
 // A public function that will orchestrate the compilation process.
 // This is the main entry point into our library.
