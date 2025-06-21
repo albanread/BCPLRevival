@@ -25,6 +25,19 @@ At one point, I likened an uncooperative LLM to a coworker who would deserve a c
 **Takeaway:** LLMs can augment human effort in programming but cannot replace training and fostering skilled programmers.
 
 ---
+## Attempt to work with Google Gemini to build a BCPL JIT compiler in rust.
+
+The LLM suggested rust, I find rust more difficult than C personally, although it is good at catching mistakes and 
+incomplete code, my gut feeling is the lexer and parser will be the easy part.
+
+Well so far we have got to the Semantic analyser, and I am currently a bit stuck on that :) 
+
+Code generation is going to be interesting ...
+
+Gemini Pro are tight fisted on LLM time as well..
+
+
+---
 
 ## Building a Modern BCPL Compiler
 
