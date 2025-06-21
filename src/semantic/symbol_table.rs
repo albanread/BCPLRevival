@@ -130,13 +130,15 @@ pub struct Symbol {
 
 #[derive(Debug, Clone, Copy)]
 pub enum SymbolKind {
-    Local { offset: usize },
+    Local { offset: isize },
     ManifestConstant { value: i64 },
     Function { arity: usize },
     Routine { arity: usize },
     Literal { location_id: usize },
     Export,
     Import,
+    Static { offset: usize },
+    Global { offset: usize },
 }
 
 pub struct SymbolTable {
@@ -165,4 +167,44 @@ impl SymbolTable {
         }
         None
     }
+
+    /// Returns all symbols in current scope
+    pub fn current_scope_symbols(&self) -> impl Iterator<Item = &Symbol> {
+        self.scopes.last()
+            .map(|scope| scope.values())
+            .into_iter()
+            .flatten()
+    }
+
+    /// Returns depth of current scope
+    pub fn scope_depth(&self) -> usize {
+        self.scopes.len()
+    }
+
+    /// Returns all symbols across all scopes, starting from innermost
+    pub fn all_symbols(&self) -> impl Iterator<Item = &Symbol> {
+        self.scopes.iter()
+            .rev()
+            .flat_map(|scope| scope.values())
+    }
+
+    /// Look up symbol and return both the symbol and its scope depth
+    pub fn lookup_with_depth(&self, name: &str) -> Option<(&Symbol, usize)> {
+        for (depth, scope) in self.scopes.iter().rev().enumerate() {
+            if let Some(symbol) = scope.get(name) {
+                return Some((symbol, self.scopes.len() - depth - 1));
+            }
+        }
+        None
+    }
+    
+    
 }
+
+/// Aligns the given offset to the specified alignment boundary
+/// For example, align_to(5, 4) would return 8
+pub fn align_to(offset: usize, alignment: usize) -> usize {
+    (offset + (alignment - 1)) & !(alignment - 1)
+}
+
+
