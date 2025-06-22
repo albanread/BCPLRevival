@@ -17,6 +17,13 @@ I first found the BCPL manual while attending night school in the Farnborough Co
 
 Far later I learned of the TRIPOS relationship with the Amiga, which is a huge but indirect topic.
 
+### My Non goals
+
+I have no plan to support some existing BCPL code base, I am more interested in the typeless high level assembler
+spirit of the language, I would like a `BCPL like` computer language for my modern systems, idealy I would like to have a kind of 'Turbo-BCPL' with a text IDE, for writing and running relatively small programs, if that makes sense.
+
+So what I am up to here, will never be commercially useful.
+
 ---
 
 ### A Wish for Modern BCPL Compilation
