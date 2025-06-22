@@ -41,7 +41,9 @@ At one point, I likened an uncooperative LLM to a coworker who would deserve a c
 **Takeaway:** LLMs can augment human effort in programming but cannot replace training and fostering skilled programmers.
 
 ---
-## My Attempt to work with Google Gemini to build a BCPL JIT compiler in rust.
+## My failed Attempt to work with Google Gemini to build a BCPL JIT compiler in rust.
+
+I am dating this entry since I hope LLMs actually do learn to code some day : not as of Sun 22nd June 2025.
 
 The LLM suggested rust, I find rust more difficult than C personally, although it is good at catching mistakes and incomplete code, my gut feeling is the lexer and parser will be the easy part.
 
@@ -51,11 +53,14 @@ Code generation is going to be interesting ...
 
 I am going to base the execution model on the model described by cintcode.
 
-The nice thing about Gemini, is that in contrast to ChatGPT and Claude, it is far less inclined to
-throw my existing code away when it makes a change, a habit that is incredibly annoying.
+Gemini is praised for its larger context window, but Gemini pro discards code, taking N steps backwards for every step forward.
 
 Gemini Pro are very tight fisted on LLM time though, and I am not paying hundreds for credits.
 
+Especially when this problem blows its mind, it simply can not write the code generator, that takes the 
+AST and program representation, maps it to the cintcode model, and generates ARM instructions.
+
+Gemini gets hopelessly stuck in never ending loops with this problem.
 
 ---
 
