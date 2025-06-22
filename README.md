@@ -8,6 +8,15 @@ I like **Scheme** and **Forth**, so naturally, I have an appreciation for **BCPL
 
 Martin Richards, the creator of BCPL, maintains an actively developed and platform-independent version of the language. You can visit his website for more details: [Martin Richards' BCPL Page](https://www.cl.cam.ac.uk/~mr10/).
 
+If you are seriously into BCPL you might go back the source there.
+
+
+### BCPL and Me
+
+I first found the BCPL manual while attending night school in the Farnborough College of Technology library, and was fascinated by the language, we had some TRIPOS computers at work that I supported and later eventually owned, this was a 68K micro-computer running TRIPOS complete with BCPL and associated command line tools, sadly that TRIPOS computer eventually died. 
+
+Far later I learned of the TRIPOS relationship with the Amiga, which is a huge but indirect topic.
+
 ---
 
 ### A Wish for Modern BCPL Compilation
@@ -25,16 +34,20 @@ At one point, I likened an uncooperative LLM to a coworker who would deserve a c
 **Takeaway:** LLMs can augment human effort in programming but cannot replace training and fostering skilled programmers.
 
 ---
-## Attempt to work with Google Gemini to build a BCPL JIT compiler in rust.
+## My Attempt to work with Google Gemini to build a BCPL JIT compiler in rust.
 
-The LLM suggested rust, I find rust more difficult than C personally, although it is good at catching mistakes and 
-incomplete code, my gut feeling is the lexer and parser will be the easy part.
+The LLM suggested rust, I find rust more difficult than C personally, although it is good at catching mistakes and incomplete code, my gut feeling is the lexer and parser will be the easy part.
 
 Well so far we have got to the Semantic analyser, and I am currently a bit stuck on that :) 
 
 Code generation is going to be interesting ...
 
-Gemini Pro are tight fisted on LLM time as well..
+I am going to base the execution model on the model described by cintcode.
+
+The nice thing about Gemini, is that in contrast to ChatGPT and Claude, it is far less inclined to
+throw my existing code away when it makes a change, a habit that is incredibly annoying.
+
+Gemini Pro are very tight fisted on LLM time though, and I am not paying hundreds for credits.
 
 
 ---
