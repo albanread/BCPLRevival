@@ -13,7 +13,7 @@ If you are seriously into BCPL you might go back the source there.
 
 ### BCPL and Me
 
-I first found the BCPL manual while attending night school in the Farnborough College of Technology library, and was fascinated by the language, we had some TRIPOS computers at work that I supported and later eventually owned, this was a 68K micro-computer running TRIPOS complete with BCPL and associated command line tools, sadly that TRIPOS computer eventually died. 
+I first found the BCPL manual in a College of Technology library, and was fascinated by the language, At one point I had a 68K micro-computer running TRIPOS complete with BCPL and associated command line tools, sadly that TRIPOS computer eventually died. 
 
 Far later I learned of the TRIPOS relationship with the Amiga, which is a huge but indirect topic.
 
