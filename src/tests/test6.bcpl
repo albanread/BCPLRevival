@@ -1,0 +1,10 @@
+
+LET START() = VALOF
+$(
+  LET a = 10
+  LET b = 5
+  LET c = 3
+  LET d = 8
+  LET result = a * (b + c) - d / 2
+  RESULTIS result
+$)

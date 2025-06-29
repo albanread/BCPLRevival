@@ -1,0 +1,6 @@
+
+LET START() = VALOF
+$(
+  LET x = 123
+  RESULTIS x
+$)

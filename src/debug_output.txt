@@ -1,0 +1,41 @@
+=== BCPL Compiler ===
+Source file: test2.b
+
+Parsing...
+Parsing complete.
+
+=== Debug Information ===
+
+--- TOKEN STREAM ---
+Line    Col     Type                Text
+-----------------------------------------------------
+1       1       LET                 'LET'
+1       5       Identifier          'START'
+1       10      LParen '('          '('
+1       11      RParen ')'          ')'
+1       13      Op '='              '='
+1       15      VALOF               'VALOF'
+1       21      LSection '$('       '$('
+2       3       RESULTIS            'RESULTIS'
+2       12      IntLiteral          '0'
+3       1       RSection '$)'       '$)'
+3       3       EOF                 ''
+-----------------------------------------------------
+
+
+--- ABSTRACT SYNTAX TREE ---
+Program
+|  FunctionDecl START()
+|  |  Valof
+|  |  |  Body:
+|  |  |  |  CompoundStatement
+|  |  |  |  |  ResultisStatement
+|  |  |  |  |  |  Value:
+|  |  |  |  |  |  |  IntLiteral: 0
+---------------------------
+
+
+Generating code...
+Visiting function declaration: START
+Generated return label: return_0
+Requesting address for label: return_0

@@ -1,0 +1,7 @@
+
+LET START() = VALOF
+$(
+  LET x = 10
+  LET y = 20
+  RESULTIS x + y
+$)
